@@ -34,7 +34,7 @@ export default function Hero() {
           className="max-w-3xl"
         >
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium uppercase tracking-wider text-brand-200 ring-1 ring-white/15 backdrop-blur">
-            Eksperci od izolacji w Twoim regionie
+            Izolacje pianą PUR — województwo łódzkie
           </p>
 
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -46,7 +46,8 @@ export default function Hero() {
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200 sm:text-xl">
             Zabezpiecz swój dom przed utratą ciepła zimą i nagrzewaniem latem.
-            Bezszwowa izolacja poddaszy z 25-letnią gwarancją wydajności.
+            Bezszwowa izolacja poddaszy z 25-letnią gwarancją wydajności —
+            łączymy Cię ze sprawdzoną ekipą na terenie województwa łódzkiego.
           </p>
 
           {/* CTA */}

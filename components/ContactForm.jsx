@@ -10,6 +10,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import FadeIn from "./FadeIn";
+import { useLegal } from "./legal/LegalProvider";
 
 const WEBHOOK_URL =
   process.env.NEXT_PUBLIC_WEBHOOK_URL ||
@@ -18,6 +19,7 @@ const WEBHOOK_URL =
 const initialForm = { name: "", phone: "", area: "", consent: false };
 
 export default function ContactForm() {
+  const { openPrivacy } = useLegal();
   const [form, setForm] = useState(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState(null); // "success" | "error" | null
@@ -35,11 +37,16 @@ export default function ContactForm() {
     setStatus(null);
     setIsSubmitting(true);
 
+    // Payload trafia na webhook. NASTĘPNY KROK: webhook (np. n8n / Apps Script)
+    // zapisuje lead do Google Sheet jako mini-CRM. Pola gotowe pod kolumny.
     const payload = {
       name: form.name,
       phone: form.phone,
       area: form.area,
       service: "Piana PUR",
+      region: "łódzkie",
+      source: "landing",
+      createdAt: new Date().toISOString(),
     };
 
     try {
@@ -99,10 +106,10 @@ export default function ContactForm() {
                 <div>
                   <p className="text-sm text-brand-200">E-mail</p>
                   <a
-                    href="mailto:kontakt@izolacjepur-pro.pl"
+                    href="mailto:kontakt@izolacjepur.pl"
                     className="text-lg font-semibold hover:text-accent-400"
                   >
-                    kontakt@izolacjepur-pro.pl
+                    kontakt@izolacjepur.pl
                   </a>
                 </div>
               </li>
@@ -113,7 +120,7 @@ export default function ContactForm() {
                 <div>
                   <p className="text-sm text-brand-200">Obszar działania</p>
                   <p className="text-lg font-semibold">
-                    Działamy na terenie całego województwa
+                    Województwo łódzkie
                   </p>
                 </div>
               </li>
@@ -188,15 +195,14 @@ export default function ContactForm() {
                     className="mb-1.5 block text-sm font-semibold text-slate-700"
                   >
                     Przybliżona powierzchnia (m²){" "}
-                    <span className="font-normal text-slate-400">
-                      — opcjonalnie
-                    </span>
+                    <span className="text-accent-500">*</span>
                   </label>
                   <input
                     id="area"
                     name="area"
                     type="number"
-                    min="0"
+                    min="1"
+                    required
                     value={form.area}
                     onChange={handleChange}
                     placeholder="np. 120"
@@ -217,12 +223,13 @@ export default function ContactForm() {
                     Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
                     przygotowania darmowej wyceny i kontaktu telefonicznego,
                     zgodnie z{" "}
-                    <a
-                      href="#"
+                    <button
+                      type="button"
+                      onClick={openPrivacy}
                       className="font-medium text-brand-500 underline hover:text-brand-600"
                     >
                       Polityką Prywatności
-                    </a>
+                    </button>
                     . <span className="text-accent-500">*</span>
                   </span>
                 </label>

@@ -5,6 +5,8 @@ import { Menu, X, Snowflake } from "lucide-react";
 
 const links = [
   { href: "#dlaczego-piana", label: "Dlaczego piana?" },
+  { href: "#porownanie", label: "Porównanie" },
+  { href: "#realizacje", label: "Realizacje" },
   { href: "#jak-dzialamy", label: "Jak działamy?" },
   { href: "#kontakt", label: "Kontakt" },
 ];
@@ -42,7 +44,7 @@ export default function Navbar() {
             className={solid ? "text-brand-500" : "text-accent-400"}
             size={26}
           />
-          IzolacjePUR&nbsp;<span className="text-brand-500">Pro</span>
+          Izolacje<span className="text-brand-500">PUR</span>
         </a>
 
         {/* Linki desktop */}

@@ -7,22 +7,22 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://izolacjepur-pro.pl";
+const siteUrl = "https://izolacjepur.pl";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Ocieplanie Pianą PUR | IzolacjePUR Pro — Darmowa Wycena",
+  title: "Ocieplanie Pianą PUR — Woj. Łódzkie | IzolacjePUR — Darmowa Wycena",
   description:
-    "Nowoczesne ocieplanie pianą PUR poddaszy. Oszczędność do 40% na ogrzewaniu, bezszwowa izolacja z 25-letnią gwarancją. Darmowy pomiar i wycena w Twoim regionie.",
+    "Ocieplanie pianą PUR poddaszy na terenie województwa łódzkiego. Oszczędność do 40% na ogrzewaniu, bezszwowa izolacja z 25-letnią gwarancją. Darmowy pomiar i wycena.",
   keywords: [
-    "ocieplanie pianą PUR",
-    "izolacja poddasza",
+    "ocieplanie pianą PUR łódzkie",
+    "izolacja poddasza Łódź",
     "piana poliuretanowa",
     "ocieplanie natryskowe",
-    "izolacja domu",
+    "izolacja domu województwo łódzkie",
     "piana PUR",
   ],
-  authors: [{ name: "IzolacjePUR Pro" }],
+  authors: [{ name: "IzolacjePUR" }],
   alternates: {
     canonical: "/",
   },
@@ -30,24 +30,24 @@ export const metadata = {
     type: "website",
     locale: "pl_PL",
     url: siteUrl,
-    siteName: "IzolacjePUR Pro",
-    title: "Ocieplanie Pianą PUR | IzolacjePUR Pro",
+    siteName: "IzolacjePUR",
+    title: "Ocieplanie Pianą PUR — Woj. Łódzkie | IzolacjePUR",
     description:
-      "Cieplejszy dom, niższe rachunki. Bezszwowa izolacja poddaszy pianą PUR z 25-letnią gwarancją. Zamów darmowy pomiar.",
+      "Cieplejszy dom, niższe rachunki. Bezszwowa izolacja poddaszy pianą PUR z 25-letnią gwarancją. Województwo łódzkie. Zamów darmowy pomiar.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "Ocieplanie pianą PUR — IzolacjePUR Pro",
+        alt: "Ocieplanie pianą PUR — IzolacjePUR",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ocieplanie Pianą PUR | IzolacjePUR Pro",
+    title: "Ocieplanie Pianą PUR — Woj. Łódzkie | IzolacjePUR",
     description:
-      "Cieplejszy dom, niższe rachunki. Bezszwowa izolacja poddaszy pianą PUR z 25-letnią gwarancją.",
+      "Cieplejszy dom, niższe rachunki. Bezszwowa izolacja poddaszy pianą PUR z 25-letnią gwarancją. Województwo łódzkie.",
   },
   robots: {
     index: true,
