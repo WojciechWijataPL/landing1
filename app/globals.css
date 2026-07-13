@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-slate-700 antialiased;
+}
+
+/* Odstęp dla sticky navbara przy kotwicach */
+section[id] {
+  scroll-margin-top: 80px;
+}
