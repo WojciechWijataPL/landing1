@@ -50,15 +50,12 @@ export default function ContactForm() {
     };
 
     try {
-      const res = await fetch(WEBHOOK_URL, {
+      // no-cors: zgodne z Google Apps Script i n8n bez konfiguracji CORS.
+      await fetch(WEBHOOK_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
         body: JSON.stringify(payload),
       });
-
-      if (!res.ok) {
-        throw new Error(`Błąd serwera: ${res.status}`);
-      }
 
       setForm(initialForm);
       setStatus("success");

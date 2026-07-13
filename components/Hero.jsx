@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Phone, Clock, ShieldCheck, BadgeCheck } from "lucide-react";
+import { useQuote } from "./wizard/QuoteProvider";
 
 const badges = [
   { icon: Clock, label: "Krótkie terminy" },
@@ -10,6 +11,7 @@ const badges = [
 ];
 
 export default function Hero() {
+  const { openQuote } = useQuote();
   return (
     <section
       id="hero"
@@ -52,12 +54,13 @@ export default function Hero() {
 
           {/* CTA */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href="#kontakt"
+            <button
+              type="button"
+              onClick={openQuote}
               className="inline-flex items-center justify-center rounded-full bg-accent-500 px-8 py-4 text-base font-semibold text-white shadow-xl shadow-accent-500/30 transition-all hover:-translate-y-0.5 hover:bg-accent-600"
             >
-              Zamów darmowy pomiar
-            </a>
+              Wylicz wycenę online
+            </button>
             <a
               href="tel:+48000000000"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-8 py-4 text-base font-semibold text-white ring-1 ring-white/25 backdrop-blur transition-all hover:bg-white/20"

@@ -8,21 +8,24 @@ import Process from "@/components/Process";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import LegalProvider from "@/components/legal/LegalProvider";
+import QuoteProvider from "@/components/wizard/QuoteProvider";
 
 export default function Home() {
   return (
     <LegalProvider>
-      <Navbar />
-      <main>
-        <Hero />
-        <Benefits />
-        <Comparison />
-        <Gallery />
-        <RegionTrust />
-        <Process />
-        <ContactForm />
-      </main>
-      <Footer />
+      <QuoteProvider>
+        <Navbar />
+        <main>
+          <Hero />
+          <Benefits />
+          <Comparison />
+          <Gallery />
+          <RegionTrust />
+          <Process />
+          <ContactForm />
+        </main>
+        <Footer />
+      </QuoteProvider>
     </LegalProvider>
   );
 }

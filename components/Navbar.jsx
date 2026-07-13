@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X, Snowflake } from "lucide-react";
+import { useQuote } from "./wizard/QuoteProvider";
 
 const links = [
   { href: "#dlaczego-piana", label: "Dlaczego piana?" },
@@ -12,6 +13,7 @@ const links = [
 ];
 
 export default function Navbar() {
+  const { openQuote } = useQuote();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -62,12 +64,13 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a
-              href="#kontakt"
+            <button
+              type="button"
+              onClick={openQuote}
               className="rounded-full bg-accent-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent-500/30 transition-all hover:bg-accent-600 hover:shadow-accent-500/40"
             >
               Darmowa Wycena
-            </a>
+            </button>
           </li>
         </ul>
 
@@ -99,13 +102,16 @@ export default function Navbar() {
               </li>
             ))}
             <li className="mt-2">
-              <a
-                href="#kontakt"
-                onClick={() => setOpen(false)}
-                className="block rounded-full bg-accent-500 px-5 py-3 text-center text-base font-semibold text-white shadow-lg shadow-accent-500/30"
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  openQuote();
+                }}
+                className="block w-full rounded-full bg-accent-500 px-5 py-3 text-center text-base font-semibold text-white shadow-lg shadow-accent-500/30"
               >
                 Darmowa Wycena
-              </a>
+              </button>
             </li>
           </ul>
         </div>
