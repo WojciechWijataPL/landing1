@@ -2,19 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X, Snowflake } from "lucide-react";
-import { useQuote } from "./wizard/QuoteProvider";
 
 const links = [
   { href: "#dlaczego-piana", label: "Dlaczego piana?" },
-  { href: "#kalkulator", label: "Oszczędności" },
-  { href: "#realizacje", label: "Realizacje" },
-  { href: "#dlaczego-my", label: "Dlaczego my?" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#jak-dzialamy", label: "Jak działamy?" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
 export default function Navbar() {
-  const { openQuote } = useQuote();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -47,7 +42,7 @@ export default function Navbar() {
             className={solid ? "text-brand-500" : "text-accent-400"}
             size={26}
           />
-          Izolacje<span className="text-brand-500">PUR</span>
+          IzolacjePUR&nbsp;<span className="text-brand-500">Pro</span>
         </a>
 
         {/* Linki desktop */}
@@ -65,13 +60,12 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <button
-              type="button"
-              onClick={openQuote}
+            <a
+              href="#kontakt"
               className="rounded-full bg-accent-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent-500/30 transition-all hover:bg-accent-600 hover:shadow-accent-500/40"
             >
               Darmowa Wycena
-            </button>
+            </a>
           </li>
         </ul>
 
@@ -103,16 +97,13 @@ export default function Navbar() {
               </li>
             ))}
             <li className="mt-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setOpen(false);
-                  openQuote();
-                }}
-                className="block w-full rounded-full bg-accent-500 px-5 py-3 text-center text-base font-semibold text-white shadow-lg shadow-accent-500/30"
+              <a
+                href="#kontakt"
+                onClick={() => setOpen(false)}
+                className="block rounded-full bg-accent-500 px-5 py-3 text-center text-base font-semibold text-white shadow-lg shadow-accent-500/30"
               >
                 Darmowa Wycena
-              </button>
+              </a>
             </li>
           </ul>
         </div>
