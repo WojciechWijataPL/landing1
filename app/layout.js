@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -65,6 +66,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pl" className={inter.variable}>
       <body>{children}</body>
+      <Analytics />
     </html>
   );
 }

@@ -12,6 +12,7 @@ import {
   Calculator,
 } from "lucide-react";
 import { STEPS, label, computeQuote, formatPLN } from "./wizardConfig";
+import { trackQuoteStart, trackLead } from "@/lib/analytics";
 
 const WEBHOOK_URL =
   process.env.NEXT_PUBLIC_WEBHOOK_URL ||
@@ -44,8 +45,9 @@ export default function QuoteWizard({ onClose }) {
   const totalSteps = STEPS.length + 1; // +1 = krok kontaktowy
   const current = STEPS[step];
 
-  // Escape + blokada scrolla
+  // Escape + blokada scrolla + zdarzenie "start wyceny"
   useEffect(() => {
+    trackQuoteStart();
     const onKey = (e) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -117,6 +119,9 @@ export default function QuoteWizard({ onClose }) {
   async function finish() {
     const q = computeQuote(answers);
     setQuote(q);
+
+    // LEAD — wartość = środek widełek wyceny (do ROI kampanii)
+    trackLead(Math.round((q.totalMin + q.totalMax) / 2));
 
     // Płaski payload — 1 lead = 1 wiersz w Google Sheets
     const payload = {
