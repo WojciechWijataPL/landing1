@@ -65,8 +65,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pl" className={inter.variable}>
-      <body>{children}</body>
-      <Analytics />
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
